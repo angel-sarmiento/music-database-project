@@ -1,0 +1,40 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2575
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red35\green255\blue248;\red255\green255\blue255;\red35\green255\blue248;
+}
+{\*\expandedcolortbl;;\cssrgb\c3509\c100000\c97988;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c3509\c100000\c97988;
+}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb3 \CocoaLigature0 create table billboard_top_100 (\
+  artist_name text, \
+  duration_ms int,\
+  id text,\
+  track_name text,\
+  track_number int,\
+  danceability decimal,\
+  energy decimal,\
+  key int,\
+  loudness decimal,\
+  mode boolean,\
+  speechiness decimal,\
+  acousticness decimal,\
+  instrumentalness decimal,\
+  liveness decimal,\
+  valence decimal,\
+  tempo decimal,\
+  time_signature int,\
+  album_name text,\
+  popularity int,\
+  tag text,\
+  PRIMARY KEY((artist_name), album_name, track_number, id))\
+  WITH CLUSTERING ORDER BY(album_name DESC, track_number ASC);\
+\
+\
+COPY billboard_top_100 (artist_name, duration_ms, id, track_name, track_number, danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo, time_signature, album_name, popularity, tag) \
+FROM \cf4 '\cf2 Documents/Github/music-database-project/data/spotify_100_no_geo.csv' \
+WITH header=true;\
+\
+\
+}
